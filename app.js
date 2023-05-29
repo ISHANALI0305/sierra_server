@@ -2,6 +2,7 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const app = express();
 
@@ -14,6 +15,7 @@ const port = process.env.PORT || 3001;
 const Message = require('./models/msgSchema');
 
 // These Method is Used to Get Data and Cookies from FrontEnd
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 app.use(cookieParser());
